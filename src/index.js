@@ -1,34 +1,20 @@
-const execFile = require('child_process').execFile
-const stream = require('stream')
-const parse = require('parse-top')
+const spawnTop = require('./lib/spawnTop.js')
+const split = require('./lib/split.js')('Processes:')
+const parser = require('./lib/parser.js')
 
-const top = (delay = 1000) => {
-  return Object.assign(
-    new stream.Readable({
-      read() {
-        if (!this.interval) {
-          this.interval = setInterval(() => {
-            execFile('top', ['-l', '1', '-stats', 'pid,command,state'], (err, stdout, stderr) => {
-              this.push(JSON.stringify(parse(stdout), null, 2))
-            })
-          }, delay)
-        }
-      }
-    }),
-    { delay, interval: null },
-    {
-      destroy () {
-        clearInterval(this.interval)
-        this.push(null)
-      }
-    }
-  )
-}
+/*
+delay
+samples
+args
+*/
 
-const instance = top()
+const top = spawnTop()
 
-instance.pipe(process.stdout)
+top.stdout
+  .pipe(split)
+  .pipe(parser)
+  .pipe(process.stdout)
 
 setTimeout(() => {
-  instance.destroy()
-}, 5000)
+  top.kill()
+}, 10000)
