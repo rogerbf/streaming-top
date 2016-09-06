@@ -34,7 +34,10 @@
       "es2015"
     ]
   },
-  "dependencies": {},
+  "dependencies": {
+    "object-from-string": "0.0.1",
+    "parse-top": "0.0.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rogerbf/streaming-top.git"
