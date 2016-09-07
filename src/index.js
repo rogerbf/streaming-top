@@ -1,20 +1,17 @@
-const spawnTop = require('./lib/spawnTop.js')
+const top = require('./lib/top.js')
 const split = require('./lib/split.js')('Processes:')
-const parser = require('./lib/parser.js')
+const parse = require('./lib/parser.js')
 
-/*
-delay
-samples
-args
-*/
+const run = options => {
+  return (
+    top(options).stdout
+      .pipe(split)
+      .pipe(parse)
+  )
+}
 
-const top = spawnTop()
+module.exports = run
 
-top.stdout
-  .pipe(split)
-  .pipe(parser)
-  .pipe(process.stdout)
+const instance = run({ samples: 2, delay: 3, args: '-n 1' })
 
-setTimeout(() => {
-  top.kill()
-}, 10000)
+instance.pipe(process.stdout)
