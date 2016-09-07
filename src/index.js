@@ -11,7 +11,3 @@ const run = options => {
 }
 
 module.exports = run
-
-const instance = run({ samples: 2, delay: 3, args: '-n 1' })
-
-instance.pipe(process.stdout)
