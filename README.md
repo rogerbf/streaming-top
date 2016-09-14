@@ -1,6 +1,6 @@
 # streaming-top
 
-Wraps `top` in a readable stream. Parsing is done by [top-parser](https://www.npmjs.com/package/parse-top).
+Wraps `top` in a readable stream. Parsing is done by [parse-top](https://www.npmjs.com/package/parse-top).
 
 ``` javascript
 const createInstance = require('streaming-top')
