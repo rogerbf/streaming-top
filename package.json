@@ -1,6 +1,6 @@
 {
   "name": "streaming-top",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "wraps top in a readable stream",
   "main": "./dist/index.js",
   "scripts": {
