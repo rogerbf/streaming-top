@@ -13,6 +13,9 @@ top.on('data', data => {
 
 // or pipe it:
 top.pipe(process.stdout)
+
+setTimeout(() => top.kill(), 2000)
+// kill the underlying top instance after 2s
 ```
 
 ### default options
