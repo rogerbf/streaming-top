@@ -15,11 +15,6 @@ const top = opts => {
       .trim().split(' ')
   )
 
-  process.on('uncaughtException', err => {
-    instance.kill()
-    console.error(err)
-  })
-
   return instance
 }
 
