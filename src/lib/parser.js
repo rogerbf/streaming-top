@@ -1,4 +1,4 @@
-const stream = require('stream')
+const stream = require('readable-stream')
 const parse = require('parse-top')
 
 const parser = Object.assign(

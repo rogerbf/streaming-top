@@ -1,6 +1,6 @@
 {
   "name": "streaming-top",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "wraps top in a readable stream",
   "main": "./dist/index.js",
   "scripts": {
@@ -9,7 +9,13 @@
     "build": "babel --ignore *.test.js --out-dir dist src",
     "prepublish": "npm run build"
   },
-  "keywords": ["stream", "top", "util", "ps", "processes"],
+  "keywords": [
+    "stream",
+    "top",
+    "util",
+    "ps",
+    "processes"
+  ],
   "author": "rogerbf <roger@bergfalk.nu> (http://bergfalk.nu/)",
   "license": "MIT",
   "devDependencies": {
@@ -36,7 +42,8 @@
   },
   "dependencies": {
     "object-from-string": "0.0.1",
-    "parse-top": "0.0.1"
+    "parse-top": "0.0.1",
+    "readable-stream": "^2.2.2"
   },
   "repository": {
     "type": "git",

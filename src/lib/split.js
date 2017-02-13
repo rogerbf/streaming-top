@@ -1,4 +1,4 @@
-const stream = require('stream')
+const stream = require('readable-stream')
 
 const split = substr => {
   const matchBy = new RegExp(substr)
